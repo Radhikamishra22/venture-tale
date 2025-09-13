@@ -9,8 +9,7 @@ const AdvancedJourneyTimeline = () => {
       title: "Founded",
       description: "Team Formation",
       icon: Users,
-      position: { x: 8, y: 20 },
-      color: "cyan"
+      color: "#06b6d4" // cyan
     },
     {
       year: "2024",
@@ -18,8 +17,7 @@ const AdvancedJourneyTimeline = () => {
       title: "Idea Stage",
       description: "The vision to simplify property finding",
       icon: Lightbulb,
-      position: { x: 25, y: 65 },
-      color: "blue"
+      color: "#3b82f6" // blue
     },
     {
       year: "2024",
@@ -27,8 +25,7 @@ const AdvancedJourneyTimeline = () => {
       title: "Research & Development", 
       description: "Building technology for users",
       icon: Microscope,
-      position: { x: 45, y: 25 },
-      color: "indigo"
+      color: "#6366f1" // indigo
     },
     {
       year: "2024",
@@ -36,8 +33,7 @@ const AdvancedJourneyTimeline = () => {
       title: "Strategy",
       description: "Smart approach for property solutions", 
       icon: Zap,
-      position: { x: 62, y: 70 },
-      color: "purple"
+      color: "#8b5cf6" // purple
     },
     {
       year: "2025",
@@ -45,8 +41,7 @@ const AdvancedJourneyTimeline = () => {
       title: "Funding & Growth",
       description: "Scaling operations to reach more users",
       icon: DollarSign,
-      position: { x: 78, y: 30 },
-      color: "violet"
+      color: "#a855f7" // violet
     },
     {
       year: "2025", 
@@ -54,8 +49,7 @@ const AdvancedJourneyTimeline = () => {
       title: "Target Achieved",
       description: "Helping thousands find rooms easily",
       icon: Target,
-      position: { x: 88, y: 75 },
-      color: "fuchsia"
+      color: "#d946ef" // fuchsia
     },
     {
       year: "2025",
@@ -63,8 +57,7 @@ const AdvancedJourneyTimeline = () => {
       title: "Launch & Expansion", 
       description: "Taking GharPadharo to the next level",
       icon: Rocket,
-      position: { x: 95, y: 50 },
-      color: "pink"
+      color: "#ec4899" // pink
     }
   ];
 
@@ -112,109 +105,49 @@ const AdvancedJourneyTimeline = () => {
           </p>
         </div>
 
-        {/* Desktop Timeline */}
-        <div className="hidden lg:block relative">
-          <div className="relative h-96 w-full">
-            {/* Curved Path */}
-            <svg 
-              className="absolute inset-0 w-full h-full" 
-              viewBox="0 0 100 100" 
-              preserveAspectRatio="none"
-            >
-              <defs>
-                <linearGradient id="pathGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#06b6d4" />
-                  <stop offset="20%" stopColor="#3b82f6" />
-                  <stop offset="40%" stopColor="#6366f1" />
-                  <stop offset="60%" stopColor="#8b5cf6" />
-                  <stop offset="80%" stopColor="#d946ef" />
-                  <stop offset="100%" stopColor="#ec4899" />
-                </linearGradient>
-                <filter id="glow">
-                  <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-                  <feMerge> 
-                    <feMergeNode in="coloredBlur"/>
-                    <feMergeNode in="SourceGraphic"/>
-                  </feMerge>
-                </filter>
-              </defs>
-              
-              {/* Main curved path */}
-              <path
-                d={createCurvePath()}
-                stroke="url(#pathGradient)"
-                strokeWidth="0.3"
-                fill="none"
-                filter="url(#glow)"
-                className="animate-pulse"
-              />
-            </svg>
-
-            {/* Milestone Points */}
+        {/* Unified Timeline - Same for Mobile and Desktop */}
+        <div className="relative max-w-6xl mx-auto">
+          {/* Horizontal gradient line */}
+          <div className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 rounded-full transform -translate-y-1/2 z-0"></div>
+          
+          <div className="flex flex-wrap justify-between items-center relative z-10 px-4 py-16">
             {milestones.map((milestone, index) => {
               const IconComponent = milestone.icon;
               return (
-                <div
-                  key={index}
-                  className="absolute transform -translate-x-1/2 -translate-y-1/2"
-                  style={{ 
-                    left: `${milestone.position.x}%`, 
-                    top: `${milestone.position.y}%` 
-                  }}
-                >
-                  {/* Diamond Node */}
-                  <div className={`relative w-4 h-4 bg-gradient-to-br from-${milestone.color}-400 to-${milestone.color}-600 rotate-45 border-2 border-white shadow-lg mb-8`}>
-                    <div className="absolute inset-0 bg-white/20 rounded-sm animate-pulse"></div>
-                  </div>
-
-                  {/* Icon */}
-                  <div className={`absolute top-6 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-gradient-to-br from-${milestone.color}-500 to-${milestone.color}-700 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300`}>
-                    <IconComponent className="w-6 h-6 text-white" />
-                  </div>
-
+                <div key={index} className="flex flex-col items-center mb-8 lg:mb-0 w-full sm:w-1/2 lg:w-auto lg:flex-1 px-2">
                   {/* Milestone Card */}
-                  <div className={`absolute top-20 left-1/2 transform -translate-x-1/2 w-48 p-4 bg-white rounded-lg shadow-xl border border-${milestone.color}-100 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2`}>
-                    <div className={`text-xs font-semibold text-${milestone.color}-600 mb-1`}>
-                      {milestone.year} {milestone.quarter}
+                  <div className="bg-white rounded-xl p-6 shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 mb-6 w-full max-w-xs">
+                    <div className="flex flex-col items-center text-center">
+                      {/* Icon */}
+                      <div 
+                        className="w-16 h-16 rounded-full flex items-center justify-center shadow-lg mb-4 transition-transform duration-300 hover:scale-110"
+                        style={{ backgroundColor: milestone.color }}
+                      >
+                        <IconComponent className="w-8 h-8 text-white" />
+                      </div>
+                      
+                      {/* Quarter/Year */}
+                      <div 
+                        className="text-sm font-semibold mb-2"
+                        style={{ color: milestone.color }}
+                      >
+                        {milestone.year} {milestone.quarter}
+                      </div>
+                      
+                      {/* Title */}
+                      <h3 className="font-bold text-gray-800 mb-3 text-lg">{milestone.title}</h3>
+                      
+                      {/* Description */}
+                      <p className="text-sm text-gray-600 leading-relaxed">{milestone.description}</p>
                     </div>
-                    <h3 className="font-bold text-gray-800 mb-2">{milestone.title}</h3>
-                    <p className="text-sm text-gray-600">{milestone.description}</p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Mobile Timeline */}
-        <div className="lg:hidden">
-          <div className="relative">
-            {/* Vertical gradient line */}
-            <div className="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-cyan-500 via-purple-500 to-pink-500 rounded-full"></div>
-            
-            {milestones.map((milestone, index) => {
-              const IconComponent = milestone.icon;
-              return (
-                <div key={index} className="relative flex items-start mb-12">
-                  {/* Node */}
-                  <div className={`relative z-10 w-6 h-6 bg-gradient-to-br from-${milestone.color}-400 to-${milestone.color}-600 rotate-45 border-2 border-white shadow-lg mr-6 mt-2`}>
-                    <div className="absolute inset-0 bg-white/20 rounded-sm"></div>
                   </div>
 
-                  {/* Content */}
-                  <div className="flex-1 bg-white rounded-lg p-4 shadow-lg border border-gray-100">
-                    <div className="flex items-center mb-3">
-                      <div className={`w-10 h-10 bg-gradient-to-br from-${milestone.color}-500 to-${milestone.color}-700 rounded-full flex items-center justify-center mr-3`}>
-                        <IconComponent className="w-5 h-5 text-white" />
-                      </div>
-                      <div>
-                        <div className={`text-xs font-semibold text-${milestone.color}-600`}>
-                          {milestone.year} {milestone.quarter}
-                        </div>
-                        <h3 className="font-bold text-gray-800">{milestone.title}</h3>
-                      </div>
-                    </div>
-                    <p className="text-sm text-gray-600">{milestone.description}</p>
+                  {/* Connection Node */}
+                  <div 
+                    className="w-8 h-8 rounded-full border-4 border-white shadow-lg relative z-20"
+                    style={{ backgroundColor: milestone.color }}
+                  >
+                    <div className="absolute inset-0 rounded-full animate-pulse opacity-50" style={{ backgroundColor: milestone.color }}></div>
                   </div>
                 </div>
               );
