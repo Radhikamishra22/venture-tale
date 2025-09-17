@@ -9,9 +9,6 @@ import {
   Award, 
   Sparkles 
 } from 'lucide-react';
-import homeSearchImg from '../../assets/home-search.svg';
-import layeredWavesImg from '../../assets/layered-waves.svg';
-import blobSceneImg from '../../assets/blob-scene.svg';
 
 const CarouselTimelineSection = () => {
   const milestones = [
@@ -21,8 +18,6 @@ const CarouselTimelineSection = () => {
       icon: Rocket,
       title: 'Founded',
       description: 'Started GharPadharo with a vision to simplify property finding for everyone.',
-      image: homeSearchImg,
-      color: 'from-purple-600 to-purple-400'
     },
     {
       year: '2024',
@@ -30,8 +25,6 @@ const CarouselTimelineSection = () => {
       icon: Lightbulb,
       title: 'Idea Stage',
       description: 'The vision to simplify property finding and connect renters with perfect homes.',
-      image: layeredWavesImg,
-      color: 'from-purple-600 to-purple-400'
     },
     {
       year: '2024',
@@ -39,8 +32,6 @@ const CarouselTimelineSection = () => {
       icon: Microscope,
       title: 'Research & Development',
       description: 'Building technology and user experience for seamless property discovery.',
-      image: blobSceneImg,
-      color: 'from-purple-600 to-purple-400'
     },
     {
       year: '2024',
@@ -48,8 +39,6 @@ const CarouselTimelineSection = () => {
       icon: Zap,
       title: 'Strategy',
       description: 'Smart approach for property solutions and market positioning.',
-      image: homeSearchImg,
-      color: 'from-purple-600 to-purple-400'
     },
     {
       year: '2024',
@@ -57,8 +46,6 @@ const CarouselTimelineSection = () => {
       icon: TrendingUp,
       title: 'Funding & Growth',
       description: 'Scaling operations to reach more users and expand our platform.',
-      image: layeredWavesImg,
-      color: 'from-purple-600 to-purple-400'
     },
     {
       year: '2024',
@@ -66,8 +53,6 @@ const CarouselTimelineSection = () => {
       icon: Target,
       title: 'Target Achieved',
       description: 'Helping thousands find rooms easily and building trust in the market.',
-      image: blobSceneImg,
-      color: 'from-purple-600 to-purple-400'
     },
     {
       year: '2024',
@@ -75,8 +60,6 @@ const CarouselTimelineSection = () => {
       icon: Award,
       title: 'Recognition',
       description: 'Gaining recognition in the proptech industry for innovation.',
-      image: homeSearchImg,
-      color: 'from-purple-600 to-purple-400'
     },
     {
       year: '2025',
@@ -84,13 +67,11 @@ const CarouselTimelineSection = () => {
       icon: Sparkles,
       title: 'Launch & Expansion',
       description: 'Taking GharPadharo to the next level with nationwide expansion.',
-      image: layeredWavesImg,
-      color: 'from-purple-600 to-purple-400'
     }
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-50 to-purple-50">
+    <section className="py-20 bg-gradient-to-b from-purple-50 to-white">
       <div className="container mx-auto px-4">
         <motion.div
           className="text-center mb-16"
@@ -107,92 +88,147 @@ const CarouselTimelineSection = () => {
           </p>
         </motion.div>
 
-        {/* Desktop: Horizontal Scroll */}
-        <div className="hidden md:block">
-          <div className="overflow-x-auto flex gap-6 snap-x snap-mandatory pb-6">
+        {/* Timeline Container */}
+        <div className="relative max-w-6xl mx-auto">
+          {/* Central Line */}
+          <div className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-purple-300 h-full hidden lg:block"></div>
+          
+          {/* Mobile Central Line */}
+          <div className="absolute left-8 w-1 bg-purple-300 h-full lg:hidden"></div>
+
+          {/* Timeline Items */}
+          <div className="space-y-12">
             {milestones.map((milestone, index) => {
               const IconComponent = milestone.icon;
+              const isEven = index % 2 === 0;
+              
               return (
                 <motion.div
                   key={index}
-                  className="min-w-[280px] snap-center bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                  className="relative"
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
                 >
-                  {/* Header with Year and Icon */}
-                  <div className="flex items-center justify-between mb-4">
-                    <div>
-                      <span className="text-2xl font-bold text-gray-900">{milestone.year}</span>
-                      <span className="text-sm text-purple-600 ml-2 font-medium">{milestone.quarter}</span>
-                    </div>
-                    <div className={`w-12 h-12 bg-gradient-to-br ${milestone.color} rounded-full flex items-center justify-center shadow-lg`}>
-                      <IconComponent className="w-6 h-6 text-white" />
-                    </div>
+                  {/* Desktop Layout - Zig Zag */}
+                  <div className="hidden lg:flex items-center">
+                    {/* Left Side Card (Even Index) */}
+                    {isEven && (
+                      <>
+                        <div className="w-5/12 pr-8">
+                          <motion.div
+                            className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                            whileHover={{ scale: 1.02 }}
+                          >
+                            <div className="text-right">
+                              <div className="flex items-center justify-end mb-4">
+                                <div className="text-right mr-4">
+                                  <span className="text-2xl font-bold text-gray-900">{milestone.year}</span>
+                                  <span className="text-sm text-purple-600 ml-2 font-medium">{milestone.quarter}</span>
+                                </div>
+                                <div className="w-12 h-12 bg-gradient-to-br from-purple-600 to-purple-400 rounded-full flex items-center justify-center shadow-lg">
+                                  <IconComponent className="w-6 h-6 text-white" />
+                                </div>
+                              </div>
+                              <h3 className="text-xl font-bold bg-gradient-to-r from-purple-600 to-purple-400 bg-clip-text text-transparent mb-3">
+                                {milestone.title}
+                              </h3>
+                              <p className="text-gray-600 leading-relaxed">{milestone.description}</p>
+                            </div>
+                          </motion.div>
+                        </div>
+                        
+                        {/* Central Marker */}
+                        <div className="w-2/12 flex justify-center">
+                          <div className="w-6 h-6 bg-purple-600 rounded-full border-4 border-white shadow-lg z-10 relative">
+                            <span className="absolute -top-8 left-1/2 transform -translate-x-1/2 text-sm font-bold text-purple-600">
+                              {index + 1}
+                            </span>
+                          </div>
+                        </div>
+                        
+                        {/* Empty Right Side */}
+                        <div className="w-5/12"></div>
+                      </>
+                    )}
+
+                    {/* Right Side Card (Odd Index) */}
+                    {!isEven && (
+                      <>
+                        {/* Empty Left Side */}
+                        <div className="w-5/12"></div>
+                        
+                        {/* Central Marker */}
+                        <div className="w-2/12 flex justify-center">
+                          <div className="w-6 h-6 bg-purple-600 rounded-full border-4 border-white shadow-lg z-10 relative">
+                            <span className="absolute -top-8 left-1/2 transform -translate-x-1/2 text-sm font-bold text-purple-600">
+                              {index + 1}
+                            </span>
+                          </div>
+                        </div>
+                        
+                        <div className="w-5/12 pl-8">
+                          <motion.div
+                            className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                            whileHover={{ scale: 1.02 }}
+                          >
+                            <div className="flex items-center justify-start mb-4">
+                              <div className="w-12 h-12 bg-gradient-to-br from-purple-600 to-purple-400 rounded-full flex items-center justify-center shadow-lg">
+                                <IconComponent className="w-6 h-6 text-white" />
+                              </div>
+                              <div className="ml-4">
+                                <span className="text-2xl font-bold text-gray-900">{milestone.year}</span>
+                                <span className="text-sm text-purple-600 ml-2 font-medium">{milestone.quarter}</span>
+                              </div>
+                            </div>
+                            <h3 className="text-xl font-bold bg-gradient-to-r from-purple-600 to-purple-400 bg-clip-text text-transparent mb-3">
+                              {milestone.title}
+                            </h3>
+                            <p className="text-gray-600 leading-relaxed">{milestone.description}</p>
+                          </motion.div>
+                        </div>
+                      </>
+                    )}
                   </div>
 
-                  {/* Title and Description */}
-                  <h3 className="text-xl font-bold bg-gradient-to-r from-purple-600 to-purple-400 bg-clip-text text-transparent mb-3">
-                    {milestone.title}
-                  </h3>
-                  <p className="text-gray-600 mb-4 leading-relaxed text-sm">{milestone.description}</p>
-
-                  {/* Image */}
-                  <div className="w-full h-32 bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg flex items-center justify-center overflow-hidden">
-                    <img 
-                      src={milestone.image} 
-                      alt={milestone.title}
-                      className="w-20 h-20 object-contain opacity-80"
-                    />
+                  {/* Mobile Layout - Stacked */}
+                  <div className="lg:hidden flex items-start">
+                    {/* Central Marker */}
+                    <div className="flex-shrink-0 w-16 flex justify-center">
+                      <div className="w-6 h-6 bg-purple-600 rounded-full border-4 border-white shadow-lg z-10 relative">
+                        <span className="absolute -left-8 top-1/2 transform -translate-y-1/2 text-sm font-bold text-purple-600">
+                          {index + 1}
+                        </span>
+                      </div>
+                    </div>
+                    
+                    {/* Card */}
+                    <div className="flex-1 ml-4">
+                      <motion.div
+                        className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                        whileHover={{ scale: 1.02 }}
+                      >
+                        <div className="flex items-center justify-start mb-4">
+                          <div className="w-12 h-12 bg-gradient-to-br from-purple-600 to-purple-400 rounded-full flex items-center justify-center shadow-lg">
+                            <IconComponent className="w-6 h-6 text-white" />
+                          </div>
+                          <div className="ml-4">
+                            <span className="text-2xl font-bold text-gray-900">{milestone.year}</span>
+                            <span className="text-sm text-purple-600 ml-2 font-medium">{milestone.quarter}</span>
+                          </div>
+                        </div>
+                        <h3 className="text-xl font-bold bg-gradient-to-r from-purple-600 to-purple-400 bg-clip-text text-transparent mb-3">
+                          {milestone.title}
+                        </h3>
+                        <p className="text-gray-600 leading-relaxed">{milestone.description}</p>
+                      </motion.div>
+                    </div>
                   </div>
                 </motion.div>
               );
             })}
           </div>
-        </div>
-
-        {/* Mobile: Vertical Stack */}
-        <div className="md:hidden space-y-6">
-          {milestones.map((milestone, index) => {
-            const IconComponent = milestone.icon;
-            return (
-              <motion.div
-                key={index}
-                className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                {/* Header with Year and Icon */}
-                <div className="flex items-center justify-between mb-4">
-                  <div>
-                    <span className="text-2xl font-bold text-gray-900">{milestone.year}</span>
-                    <span className="text-sm text-purple-600 ml-2 font-medium">{milestone.quarter}</span>
-                  </div>
-                  <div className={`w-12 h-12 bg-gradient-to-br ${milestone.color} rounded-full flex items-center justify-center shadow-lg`}>
-                    <IconComponent className="w-6 h-6 text-white" />
-                  </div>
-                </div>
-
-                {/* Title and Description */}
-                <h3 className="text-xl font-bold bg-gradient-to-r from-purple-600 to-purple-400 bg-clip-text text-transparent mb-3">
-                  {milestone.title}
-                </h3>
-                <p className="text-gray-600 mb-4 leading-relaxed">{milestone.description}</p>
-
-                {/* Image */}
-                <div className="w-full h-32 bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg flex items-center justify-center overflow-hidden">
-                  <img 
-                    src={milestone.image} 
-                    alt={milestone.title}
-                    className="w-20 h-20 object-contain opacity-80"
-                  />
-                </div>
-              </motion.div>
-            );
-          })}
         </div>
       </div>
     </section>
