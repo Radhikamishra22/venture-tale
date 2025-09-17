@@ -1,6 +1,6 @@
 import ModernHeader from '../components/ModernHeader';
 import HeroSection from '../components/journey/HeroSection';
-import TimelineSection from '../components/journey/TimelineSection';
+import CarouselTimelineSection from '../components/journey/CarouselTimelineSection';
 import InteractiveSection from '../components/journey/InteractiveSection';
 import StatsSection from '../components/journey/StatsSection';
 import VisionSection from '../components/journey/VisionSection';
@@ -13,7 +13,7 @@ const Index = () => {
       <ModernHeader />
       <main>
         <HeroSection />
-        <TimelineSection />
+        <CarouselTimelineSection />
         <InteractiveSection />
         <StatsSection />
         <VisionSection />

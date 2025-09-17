@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
+import gharpadharoLogo from '../assets/gharpadharo-logo.png';
 
 const ModernHeader = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -26,9 +27,11 @@ const ModernHeader = () => {
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            <div className="w-10 h-10 bg-gradient-to-br from-purple-600 to-pink-600 rounded-full flex items-center justify-center">
-              <span className="text-white font-bold text-lg">G</span>
-            </div>
+            <img 
+              src={gharpadharoLogo} 
+              alt="GharPadharo Logo" 
+              className="w-10 h-10 rounded-full"
+            />
             <span className="text-2xl font-bold text-purple-600">GharPadharo</span>
           </motion.div>
 
