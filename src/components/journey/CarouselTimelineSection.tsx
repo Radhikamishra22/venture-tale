@@ -181,61 +181,89 @@ const CarouselTimelineSection = () => {
             Journey <span className="text-purple-600">Flow</span>
           </h3>
           
-          {/* Desktop View */}
-          <div className="hidden lg:block relative max-w-6xl mx-auto">
-            {/* Curved Path */}
-            <svg viewBox="0 0 1200 400" className="w-full h-96 absolute inset-0">
+          {/* Desktop View - Floating Cards */}
+          <div className="hidden lg:block relative max-w-7xl mx-auto min-h-[600px]">
+            {/* Connecting Lines SVG */}
+            <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1000 600">
               <defs>
-                <linearGradient id="pathGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <linearGradient id="flowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
                   <stop offset="0%" stopColor="#06b6d4" />
-                  <stop offset="25%" stopColor="#3b82f6" />
-                  <stop offset="50%" stopColor="#8b5cf6" />
-                  <stop offset="75%" stopColor="#ec4899" />
-                  <stop offset="100%" stopColor="#f97316" />
+                  <stop offset="20%" stopColor="#3b82f6" />
+                  <stop offset="40%" stopColor="#8b5cf6" />
+                  <stop offset="60%" stopColor="#ec4899" />
+                  <stop offset="80%" stopColor="#f97316" />
+                  <stop offset="100%" stopColor="#10b981" />
                 </linearGradient>
               </defs>
+              
+              {/* Curved connecting paths */}
               <path
-                d="M 50 200 Q 200 100 350 200 T 650 200 Q 800 100 950 200 Q 1050 150 1150 200"
-                stroke="url(#pathGradient)"
-                strokeWidth="4"
+                d="M 120 150 Q 200 100 280 200 Q 350 280 450 180 Q 550 80 650 250 Q 750 350 850 150"
+                stroke="url(#flowGradient)"
+                strokeWidth="3"
                 fill="none"
-                className="drop-shadow-lg"
+                className="opacity-60"
+                strokeDasharray="8,4"
               />
             </svg>
 
-            {/* Milestone Nodes */}
-            <div className="relative z-10 flex justify-between items-center h-96">
+            {/* Floating Milestone Cards */}
+            <div className="relative z-10">
               {milestones.map((milestone, index) => {
                 const IconComponent = milestone.icon;
-                const positions = [
-                  'top-1/2 left-12',
-                  'top-1/4 left-1/4',
-                  'top-1/2 left-2/5',
-                  'top-1/4 left-3/5',
-                  'top-1/2 right-1/4',
-                  'top-1/4 right-1/5',
-                  'top-1/2 right-16',
-                  'top-1/4 right-8'
+                const cardPositions = [
+                  { top: '10%', left: '5%' },     // Top left
+                  { top: '25%', left: '25%' },    // Mid left
+                  { top: '5%', left: '45%' },     // Top center
+                  { top: '35%', left: '65%' },    // Mid right
+                  { top: '15%', left: '85%' },    // Top right
+                  { top: '55%', left: '70%' },    // Bottom right
+                  { top: '70%', left: '45%' },    // Bottom center
+                  { top: '50%', left: '15%' }     // Bottom left
                 ];
                 
                 return (
                   <motion.div
                     key={index}
-                    className={`absolute ${positions[index]} transform -translate-x-1/2 -translate-y-1/2`}
-                    initial={{ scale: 0, opacity: 0 }}
-                    whileInView={{ scale: 1, opacity: 1 }}
-                    transition={{ duration: 0.5, delay: index * 0.2 }}
+                    className="absolute"
+                    style={{
+                      top: cardPositions[index]?.top || '50%',
+                      left: cardPositions[index]?.left || '50%',
+                      transform: 'translate(-50%, -50%)'
+                    }}
+                    initial={{ scale: 0, opacity: 0, y: 50 }}
+                    whileInView={{ scale: 1, opacity: 1, y: 0 }}
+                    transition={{ 
+                      duration: 0.6, 
+                      delay: index * 0.15,
+                      type: "spring",
+                      stiffness: 100
+                    }}
                     viewport={{ once: true }}
-                    whileHover={{ scale: 1.2 }}
+                    whileHover={{ 
+                      scale: 1.05,
+                      y: -5,
+                      transition: { duration: 0.2 }
+                    }}
                   >
-                    <div className="text-center">
-                      <div className={`w-16 h-16 bg-gradient-to-br ${milestone.color} rounded-full flex items-center justify-center shadow-xl border-4 border-white mb-2`}>
-                        <IconComponent className="w-8 h-8 text-white" />
+                    <div className="bg-white rounded-xl p-6 shadow-2xl border border-gray-100 w-72 relative">
+                      {/* Icon and Year Header */}
+                      <div className="flex items-center justify-between mb-4">
+                        <div>
+                          <div className="text-2xl font-bold text-gray-900">{milestone.year}</div>
+                          <div className="text-sm font-medium text-purple-600">{milestone.quarter}</div>
+                        </div>
+                        <div className={`w-14 h-14 bg-gradient-to-br ${milestone.color} rounded-full flex items-center justify-center shadow-lg`}>
+                          <IconComponent className="w-7 h-7 text-white" />
+                        </div>
                       </div>
-                      <div className="bg-white rounded-lg p-2 shadow-lg border border-gray-100 min-w-32">
-                        <div className="text-xs font-bold text-purple-600">{milestone.year} {milestone.quarter}</div>
-                        <div className="text-xs text-gray-700 font-medium">{milestone.title}</div>
-                      </div>
+                      
+                      {/* Title and Description */}
+                      <h4 className="text-lg font-bold text-gray-900 mb-2">{milestone.title}</h4>
+                      <p className="text-sm text-gray-600 leading-relaxed">{milestone.description}</p>
+                      
+                      {/* Decorative dot */}
+                      <div className={`absolute -top-2 -right-2 w-4 h-4 bg-gradient-to-br ${milestone.color} rounded-full shadow-lg`}></div>
                     </div>
                   </motion.div>
                 );
