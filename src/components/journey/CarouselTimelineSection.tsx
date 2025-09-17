@@ -1,6 +1,15 @@
 import { motion } from 'framer-motion';
 import { useRef } from 'react';
-import { Rocket, Lightbulb, Microscope, Zap, Target, TrendingUp, Award, Sparkles } from 'lucide-react';
+import { 
+  Rocket, 
+  Lightbulb, 
+  Microscope, 
+  Zap, 
+  Target, 
+  TrendingUp, 
+  Award, 
+  Sparkles 
+} from 'lucide-react';
 import {
   Carousel,
   CarouselContent,
