@@ -1,77 +1,85 @@
 import { motion } from 'framer-motion';
 import { 
-  Rocket, 
-  Lightbulb, 
-  Microscope, 
-  Zap, 
-  Target, 
-  TrendingUp, 
-  Award, 
-  Sparkles 
+  Home, 
+  Building2, 
+  DollarSign, 
+  Search, 
+  Smartphone, 
+  Shield, 
+  TrendingUp,
+  Zap 
 } from 'lucide-react';
 
 const CarouselTimelineSection = () => {
   const milestones = [
     {
       year: '2024',
-      quarter: 'Q1',
-      icon: Lightbulb,
-      title: 'Idea Stage',
-      description: 'The vision to simplify property finding and connect renters with perfect homes.',
-      position: { top: '20%', left: '5%' }
+      icon: Home,
+      title: 'Company Founded',
+      description: 'GharPadharo was established with a vision to revolutionize property rental market.',
+      level: 'top',
+      position: { x: 85, y: 15 }
     },
     {
-      year: '2024',
-      quarter: 'Q2',
-      icon: Microscope,
-      title: 'Research & Development',
-      description: 'Building technology and user experience for seamless property discovery.',
-      position: { top: '40%', left: '25%' }
+      year: '2019',
+      icon: Building2,
+      title: 'Platform Launch: User Verification & Listings',
+      description: 'Launched our core platform with verified user profiles and comprehensive property listings.',
+      level: 'top',
+      position: { x: 15, y: 25 }
     },
     {
-      year: '2024',
-      quarter: 'Q2',
-      icon: Zap,
-      title: 'Strategy',
-      description: 'Smart approach for property solutions and market positioning.',
-      position: { top: '10%', left: '45%' }
-    },
-    {
-      year: '2024',
-      quarter: 'Q3',
-      icon: Target,
-      title: 'Target Achieved',
-      description: 'Helping thousands find rooms easily and building trust in the market.',
-      position: { top: '60%', left: '35%' }
-    },
-    {
-      year: '2024',
-      quarter: 'Q3',
-      icon: TrendingUp,
-      title: 'Funding & Growth',
-      description: 'Scaling operations to reach more users and expand our platform.',
-      position: { top: '30%', left: '65%' }
-    },
-    {
-      year: '2024',
-      quarter: 'Q4',
-      icon: Award,
-      title: 'Recognition',
-      description: 'Gaining recognition in the proptech industry for innovation.',
-      position: { top: '80%', left: '55%' }
+      year: '2019',
+      icon: DollarSign,
+      title: 'Exclusive Deals Platform',
+      description: 'Introduced exclusive deals and offers for verified users and property owners.',
+      level: 'middle',
+      position: { x: 40, y: 35 }
     },
     {
       year: '2025',
-      quarter: 'Q1',
-      icon: Rocket,
-      title: 'Launch & Expansion',
-      description: 'Taking GharPadharo to the next level with nationwide expansion.',
-      position: { top: '50%', left: '85%' }
+      icon: Search,
+      title: 'Direct Owner-Tenant Search',
+      description: 'Revolutionary direct connection system between property owners and tenants.',
+      level: 'top',
+      position: { x: 70, y: 28 }
+    },
+    {
+      year: '2025',
+      icon: Smartphone,
+      title: 'Mobile App Release & AI-Driven Search',
+      description: 'Launched mobile application with advanced AI-powered property search and recommendations.',
+      level: 'top',
+      position: { x: 95, y: 32 }
+    },
+    {
+      year: '2018',
+      icon: Zap,
+      title: 'Advanced Search Engine',
+      description: 'Developed sophisticated search algorithms for better property matching.',
+      level: 'bottom',
+      position: { x: 20, y: 70 }
+    },
+    {
+      year: '2023',
+      icon: Shield,
+      title: 'Enhanced Security & Smart Features',
+      description: 'Implemented advanced security measures and smart property management features.',
+      level: 'bottom',
+      position: { x: 50, y: 65 }
+    },
+    {
+      year: '2024',
+      icon: TrendingUp,
+      title: 'Nationwide Expansion & Investment Round',
+      description: 'Secured major investment and expanded operations across the country.',
+      level: 'bottom',
+      position: { x: 80, y: 68 }
     }
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-purple-50 to-white">
+    <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
       <div className="container mx-auto px-4">
         <motion.div
           className="text-center mb-16"
@@ -88,42 +96,99 @@ const CarouselTimelineSection = () => {
           </p>
         </motion.div>
 
-        {/* Flowing Timeline Container */}
-        <div className="relative max-w-7xl mx-auto min-h-[600px] lg:min-h-[500px] overflow-hidden">
-          {/* Desktop Flowing Path */}
+        {/* Multi-Level Flowing Timeline */}
+        <div className="relative max-w-7xl mx-auto min-h-[700px] lg:min-h-[600px] overflow-hidden">
+          {/* Desktop Multi-Level Layout */}
           <div className="hidden lg:block">
-            {/* SVG Path */}
+            {/* Complex SVG Path System */}
             <svg 
               className="absolute inset-0 w-full h-full z-0" 
-              viewBox="0 0 1000 500" 
+              viewBox="0 0 1000 600" 
               preserveAspectRatio="xMidYMid meet"
             >
               <defs>
-                <linearGradient id="pathGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <linearGradient id="mainGradient" x1="0%" y1="0%" x2="100%" y2="0%">
                   <stop offset="0%" stopColor="#14b8a6" />
-                  <stop offset="30%" stopColor="#3b82f6" />
-                  <stop offset="70%" stopColor="#8b5cf6" />
+                  <stop offset="25%" stopColor="#3b82f6" />
+                  <stop offset="50%" stopColor="#8b5cf6" />
+                  <stop offset="75%" stopColor="#d946ef" />
                   <stop offset="100%" stopColor="#ec4899" />
                 </linearGradient>
               </defs>
+              
+              {/* Top curved path */}
               <path
-                d="M 50 150 Q 200 50 350 100 Q 500 150 650 80 Q 800 50 950 120"
-                stroke="url(#pathGradient)"
+                d="M 100 100 Q 300 60 500 100 Q 700 140 900 100"
+                stroke="url(#mainGradient)"
+                strokeWidth="4"
+                fill="none"
+                strokeLinecap="round"
+              />
+              
+              {/* Middle connecting curves */}
+              <path
+                d="M 150 120 Q 200 200 250 280"
+                stroke="url(#mainGradient)"
+                strokeWidth="4"
+                fill="none"
+                strokeLinecap="round"
+              />
+              
+              <path
+                d="M 400 120 Q 450 200 500 280"
+                stroke="url(#mainGradient)"
+                strokeWidth="4"
+                fill="none"
+                strokeLinecap="round"
+              />
+              
+              <path
+                d="M 700 120 Q 750 200 800 280"
+                stroke="url(#mainGradient)"
+                strokeWidth="4"
+                fill="none"
+                strokeLinecap="round"
+              />
+              
+              {/* Main horizontal flow */}
+              <path
+                d="M 50 300 Q 200 260 350 300 Q 500 340 650 300 Q 800 260 950 300"
+                stroke="url(#mainGradient)"
                 strokeWidth="6"
                 fill="none"
                 strokeLinecap="round"
               />
+              
+              {/* Bottom curved path */}
               <path
-                d="M 50 250 Q 200 350 350 300 Q 500 250 650 320 Q 800 350 950 280"
-                stroke="url(#pathGradient)"
-                strokeWidth="6"
+                d="M 200 320 Q 250 400 300 480"
+                stroke="url(#mainGradient)"
+                strokeWidth="4"
                 fill="none"
                 strokeLinecap="round"
               />
+              
               <path
-                d="M 50 400 Q 200 450 350 420 Q 500 400 650 430 Q 800 450 950 420"
-                stroke="url(#pathGradient)"
-                strokeWidth="6"
+                d="M 500 320 Q 550 400 600 480"
+                stroke="url(#mainGradient)"
+                strokeWidth="4"
+                fill="none"
+                strokeLinecap="round"
+              />
+              
+              <path
+                d="M 800 320 Q 850 400 900 480"
+                stroke="url(#mainGradient)"
+                strokeWidth="4"
+                fill="none"
+                strokeLinecap="round"
+              />
+              
+              {/* Bottom horizontal path */}
+              <path
+                d="M 200 500 Q 400 460 600 500 Q 700 520 900 500"
+                stroke="url(#mainGradient)"
+                strokeWidth="4"
                 fill="none"
                 strokeLinecap="round"
               />
@@ -132,62 +197,51 @@ const CarouselTimelineSection = () => {
             {/* Milestone Markers and Cards */}
             {milestones.map((milestone, index) => {
               const IconComponent = milestone.icon;
-              const pathPoints = [
-                { x: 12, y: 30 }, // Path 1
-                { x: 35, y: 20 }, 
-                { x: 65, y: 16 },
-                { x: 35, y: 64 }, // Path 2
-                { x: 65, y: 56 },
-                { x: 65, y: 86 }, // Path 3
-                { x: 95, y: 84 }
-              ];
-              const point = pathPoints[index] || pathPoints[pathPoints.length - 1];
+              const { x, y } = milestone.position;
               
               return (
                 <motion.div
                   key={index}
                   className="absolute z-10"
                   style={{ 
-                    left: `${point.x}%`, 
-                    top: `${point.y}%`,
+                    left: `${x}%`, 
+                    top: `${y}%`,
                     transform: 'translate(-50%, -50%)'
                   }}
                   initial={{ opacity: 0, scale: 0 }}
                   whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.6, delay: index * 0.2 }}
+                  transition={{ duration: 0.6, delay: index * 0.15 }}
                   viewport={{ once: true }}
                 >
-                  {/* Diamond Marker */}
+                  {/* Circular Marker */}
                   <div className="relative">
-                    <div className="w-6 h-6 bg-white border-4 border-purple-600 transform rotate-45 shadow-lg"></div>
-                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -rotate-45">
-                      <div className="w-4 h-4 bg-gradient-to-br from-purple-600 to-purple-400 rounded-full flex items-center justify-center">
-                        <span className="text-[10px] font-bold text-white">{index + 1}</span>
-                      </div>
+                    <div className="w-8 h-8 bg-gradient-to-br from-purple-600 to-pink-500 rounded-full shadow-lg border-4 border-white flex items-center justify-center">
+                      <IconComponent className="w-4 h-4 text-white" />
                     </div>
                   </div>
 
                   {/* Floating Card */}
                   <motion.div
-                    className="absolute mt-8 w-64"
+                    className="absolute w-72"
                     style={{ 
-                      left: index % 2 === 0 ? '-128px' : '-128px',
-                      top: index % 3 === 0 ? '20px' : index % 3 === 1 ? '-80px' : '20px'
+                      left: milestone.level === 'top' ? '-144px' : 
+                            milestone.level === 'bottom' ? '-144px' : '-144px',
+                      top: milestone.level === 'top' ? '-120px' : 
+                           milestone.level === 'bottom' ? '30px' : '-45px'
                     }}
                     whileHover={{ scale: 1.05, y: -5 }}
                     transition={{ type: "spring", stiffness: 300 }}
                   >
-                    <div className="bg-white p-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-purple-100">
+                    <div className="bg-white p-5 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-purple-100">
                       <div className="flex items-center mb-3">
-                        <div className="w-10 h-10 bg-gradient-to-br from-purple-600 to-purple-400 rounded-full flex items-center justify-center shadow-md">
-                          <IconComponent className="w-5 h-5 text-white" />
+                        <div className="w-12 h-12 bg-gradient-to-br from-purple-600 to-pink-500 rounded-full flex items-center justify-center shadow-md">
+                          <IconComponent className="w-6 h-6 text-white" />
                         </div>
                         <div className="ml-3">
-                          <span className="text-lg font-bold text-gray-900">{milestone.year}</span>
-                          <span className="text-xs text-purple-600 ml-1 font-medium">{milestone.quarter}</span>
+                          <span className="text-xl font-bold text-gray-900">{milestone.year}</span>
                         </div>
                       </div>
-                      <h3 className="text-md font-bold bg-gradient-to-r from-purple-600 to-purple-400 bg-clip-text text-transparent mb-2">
+                      <h3 className="text-lg font-bold bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent mb-2">
                         {milestone.title}
                       </h3>
                       <p className="text-sm text-gray-600 leading-relaxed">{milestone.description}</p>
@@ -214,36 +268,31 @@ const CarouselTimelineSection = () => {
                 >
                   {/* Vertical Line */}
                   {index < milestones.length - 1 && (
-                    <div className="absolute left-6 top-12 w-0.5 h-16 bg-gradient-to-b from-purple-400 to-purple-600"></div>
+                    <div className="absolute left-6 top-12 w-0.5 h-16 bg-gradient-to-b from-purple-400 to-pink-500"></div>
                   )}
                   
-                  {/* Diamond Marker */}
+                  {/* Circular Marker */}
                   <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center">
-                    <div className="w-6 h-6 bg-white border-4 border-purple-600 transform rotate-45 shadow-lg relative">
-                      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -rotate-45">
-                        <div className="w-4 h-4 bg-gradient-to-br from-purple-600 to-purple-400 rounded-full flex items-center justify-center">
-                          <span className="text-[10px] font-bold text-white">{index + 1}</span>
-                        </div>
-                      </div>
+                    <div className="w-8 h-8 bg-gradient-to-br from-purple-600 to-pink-500 rounded-full shadow-lg border-4 border-white flex items-center justify-center">
+                      <IconComponent className="w-4 h-4 text-white" />
                     </div>
                   </div>
                   
                   {/* Card */}
                   <div className="flex-1 ml-4">
                     <motion.div
-                      className="bg-white p-4 rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                      className="bg-white p-5 rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
                       whileHover={{ scale: 1.02 }}
                     >
                       <div className="flex items-center mb-3">
-                        <div className="w-10 h-10 bg-gradient-to-br from-purple-600 to-purple-400 rounded-full flex items-center justify-center shadow-md">
+                        <div className="w-10 h-10 bg-gradient-to-br from-purple-600 to-pink-500 rounded-full flex items-center justify-center shadow-md">
                           <IconComponent className="w-5 h-5 text-white" />
                         </div>
                         <div className="ml-3">
                           <span className="text-lg font-bold text-gray-900">{milestone.year}</span>
-                          <span className="text-xs text-purple-600 ml-1 font-medium">{milestone.quarter}</span>
                         </div>
                       </div>
-                      <h3 className="text-md font-bold bg-gradient-to-r from-purple-600 to-purple-400 bg-clip-text text-transparent mb-2">
+                      <h3 className="text-md font-bold bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent mb-2">
                         {milestone.title}
                       </h3>
                       <p className="text-sm text-gray-600 leading-relaxed">{milestone.description}</p>
